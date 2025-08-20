@@ -1,0 +1,79 @@
+<%- include('partials/header.ejs', { pageTitle: pageTitle }) %>
+
+<main class="container timeline-container">
+    <% if (error) { %>
+        <div class="error-message">
+            <p><%= error %></p>
+            <a href="/" class="back-link">Try a different date</a>
+        </div>
+    <% } else { %>
+        <h1>Timeline</h1>
+        <a href="/" class="back-link">Explore another date</a>
+
+        <% if (events && events.length > 0) { %>
+            <h2>Events</h2>
+            <div class="timeline">
+                <% events.forEach(event => { %>
+                    <div class="timeline-item">
+                        <div class="timeline-year">
+                            <p><%= event.year %></p>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><%= event.text %></h3>
+                            <% if (event.links && event.links.length > 0) { %>
+                                <a href="<%= event.links[0].link %>" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+
+        <% if (births && births.length > 0) { %>
+            <h2>Births</h2>
+            <div class="timeline">
+                <% births.forEach(birth => { %>
+                    <div class="timeline-item">
+                        <div class="timeline-year">
+                            <p><%= birth.year %></p>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><%= birth.text %></h3>
+                            <% if (birth.links && birth.links.length > 0) { %>
+                                <a href="<%= birth.links[0].link %>" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+
+        <% if (deaths && deaths.length > 0) { %>
+            <h2>Deaths</h2>
+            <div class="timeline">
+                <% deaths.forEach(death => { %>
+                    <div class="timeline-item">
+                        <div class="timeline-year">
+                            <p><%= death.year %></p>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><%= death.text %></h3>
+                            <% if (death.links && death.links.length > 0) { %>
+                                <a href="<%= death.links[0].link %>" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+
+        <% if (events.length === 0 && births.length === 0 && deaths.length === 0) { %>
+            <div class="error-message">
+                <p>No major events, births, or deaths found for this date. Try another one!</p>
+            </div>
+        <% } %>
+
+    <% } %>
+</main>
+
+<%- include('partials/footer.ejs') %>

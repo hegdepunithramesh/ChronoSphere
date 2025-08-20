@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs', { pageTitle: pageTitle }) %>
+
+<main>
+
+    <div class="hero-section">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <h1>Journey through the echoes of time.</h1>
+            <p class="tagline">Every day holds a story. ChronoSphere is your key to unlocking the past, connecting you to the pivotal events, influential births, and notable deaths that have shaped our world. Just choose a date and discover the tapestry of history woven into a single day.</p>
+        </div>
+    </div>
+
+
+    <div class="container search-card-container">
+        <div class="card search-card">
+            <h2>Embark on your historical expedition</h2>
+            <form action="/timeline" method="GET" class="search-form">
+                <input type="date" name="date" id="date-input" required>
+                <button type="submit">Reveal History</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer.ejs') %>
