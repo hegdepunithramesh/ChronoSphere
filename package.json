@@ -1,18 +1,28 @@
 {
   "name": "chronosphere",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["history", "timeline", "education"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A historical timeline explorer that reveals events, births, and deaths from any date in history",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "dependencies": {
     "axios": "^1.11.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "wikipedia": "^2.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }

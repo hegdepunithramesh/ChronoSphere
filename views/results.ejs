@@ -1,14 +1,26 @@
 <%- include('partials/header.ejs', { pageTitle: pageTitle }) %>
 
 <main class="container timeline-container">
+    <% if (!error) { %>
+        <div class="info-banner">
+            <h1><%= monthName %> <%= queryDay %>, <%= queryYear %></h1>
+            <p class="info-text">
+                📜 Showing <strong><%= totalCount %></strong> historical records from <strong><%= monthName %> <%= queryDay %></strong> 
+                <% if (minYear && maxYear) { %>
+                    spanning <strong><%= minYear %></strong> to <strong><%= maxYear %></strong>
+                <% } %>
+            </p>
+            <p class="subtitle">Everything that happened on this day throughout history up to and including <%= queryYear %>!</p>
+        </div>
+    <% } %>
+    
     <% if (error) { %>
         <div class="error-message">
             <p><%= error %></p>
             <a href="/" class="back-link">Try a different date</a>
         </div>
     <% } else { %>
-        <h1>Timeline</h1>
-        <a href="/" class="back-link">Explore another date</a>
+        <a href="/" class="back-link">← Explore another date</a>
 
         <% if (events && events.length > 0) { %>
             <h2>Events</h2>

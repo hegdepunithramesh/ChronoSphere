@@ -27,5 +27,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`ChronoSphere server is running on http://localhost:${PORT}`);
+    console.log(`✅ ChronoSphere server is running on port ${PORT}`);
 });
