@@ -23,7 +23,7 @@ import indexRouter from './routes/index.js';
 app.use('/', indexRouter);
 
 app.use((req, res) => {
-    res.status(404).render('partials/error', { message: 'Page not found.' });
+    res.status(404).send('<h1>404 - Page Not Found</h1><p><a href="/">Return to ChronoSphere</a></p>');
 });
 
 app.listen(PORT, () => {
